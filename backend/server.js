@@ -10,7 +10,10 @@ if (env.error) {
 }
 
 // Replace password in the database connection string
-const DB = process.env.DATABASE;
+const DB = process.env.DATABASE.replace(
+  '<PASSWORD>',
+  process.env.DATABASE_PASSWORD
+);
 
 console.log('Connecting to DB:', DB);
 
@@ -26,6 +29,39 @@ mongoose
   })
   .catch((err) => {
     console.error('DB connection failed:', err.message);
+  });
+
+// Schemma for tours
+const tourSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: [true, 'A tour must have a name'],
+    unique: true,
+  },
+  rating: {
+    type: Number,
+    default: 4.5,
+  },
+  price: {
+    type: String,
+    required: [true, 'A tour must have a price'],
+  },
+});
+const Tour = mongoose.model('Tour', tourSchema);
+
+const testTour = new Tour({
+  name: 'The Forest Hiker',
+  rating: 4.5,
+  price: 1000,
+});
+
+testTour
+  .save()
+  .then((doc) => {
+    console.log(doc);
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
 // Start the server

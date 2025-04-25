@@ -1,0 +1,40 @@
+// Middlewares - updates incomming data and adds them to body
+
+//  GET requests
+    POST requests - entire new data is send
+    PATCH request - only updated data is sent
+       ?- for optional parameters
+       :- for permanent parameters
+
+// Middleware
+    something that manipulates data and sends req,res to next stop in request-response cycle
+    "everything is middleware, even routes"
+
+// Mongoose
+    - is a object data modelling library for mongodb and nodejs, a higher level of abstraction
+    - it allows for rapic and simple development of mongodb database interactions
+    - features- schemas to model data and relationships, easy data validation, simple query API, middleware, etc
+    - Mongoose Scheme: where we model our data, by describgin values and validation
+    - Mongoose Model: a wrapper for the schema, providing an interface to the database for crud operations
+    Schema -> Model 
+
+// MVC Architecture
+    - Model         - Application data and buissness logic
+    - Controller    - Application logic
+    - View          - Presentation Logic
+
+    request hits a router(which deligates the request to the correct controller), the controller depending upon the req retrieves necessary things from model and then returns a response in a presentable view(ex - overview, tour, login)
+
+    *Application Logic -
+    -code that is only concerned about the application's implementation, not the underlying problem we are trying to solve
+    -concerned about managing requests and responses
+    -bridge between model and view layers
+
+    *Buisness Logic -
+    -code that actually solves the buisness problem we set out to solve
+    -directly related to buisness rules, how the buisness workds and buisness needs
+    - ex    - creating new tours in database 
+            - checking if user's pass is correct or not
+            - validating user input data
+            - ensuring only users who bought a tour can review it
+    *Fat models/thin model: offload as much as logic as possible into the models and keep the controllers as simple and lean as possible
