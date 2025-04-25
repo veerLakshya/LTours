@@ -43,3 +43,6 @@ out/
 # Logs and crash reports
 *.log
 *.tgz
+
+# sensitive data
+.env
