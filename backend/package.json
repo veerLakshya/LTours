@@ -1,0 +1,29 @@
+{
+  "name": "ltours",
+  "version": "1.0.0",
+  "description": "ltours",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "start:prod": "NODE_ENV=production nodemon server.js"
+  },
+  "author": "Lakshya",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongodb": "^6.16.0",
+    "mongoose": "^8.13.2",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.9"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/veerLakshya/LTours.git"
+  },
+  "bugs": {
+    "url": "https://github.com/veerLakshya/LTours/issues"
+  },
+  "homepage": "https://github.com/veerLakshya/LTours#readme"
+}
